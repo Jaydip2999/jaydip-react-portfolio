@@ -14,13 +14,10 @@ This is my personal portfolio website built using **React.js** to showcase my sk
 
 * React.js
 * JavaScript
-* HTML5
-* CSS3
 
 
 ## 🌐 Live Demo
 
-(Add your deployed website link here)
 
 ## 👨‍💻 Author
 
