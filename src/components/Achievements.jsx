@@ -1,6 +1,6 @@
 function Achievements() {
   return (
-    <section id="achievements" className="section reveal">
+    <section id="achievements" className="section section-compact reveal">
       <h2 className="section-title">Achievements</h2>
       <p className="section-subtitle">
         Highlights that reflect consistent learning and delivery quality.

@@ -57,6 +57,34 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const experienceLists = Array.from(document.querySelectorAll(".experience-list"));
+    if (experienceLists.length === 0) return undefined;
+
+    const updateExperienceFill = () => {
+      const viewportFocus = window.innerHeight * 0.35;
+      const scrollY = window.scrollY + viewportFocus;
+
+      experienceLists.forEach((list) => {
+        const rect = list.getBoundingClientRect();
+        const start = rect.top + window.scrollY;
+        const end = start + rect.height;
+        const progress = (scrollY - start) / Math.max(1, end - start);
+        const clamped = Math.min(1, Math.max(0, progress));
+        list.style.setProperty("--fill", `${(clamped * 100).toFixed(2)}%`);
+      });
+    };
+
+    updateExperienceFill();
+    window.addEventListener("scroll", updateExperienceFill, { passive: true });
+    window.addEventListener("resize", updateExperienceFill);
+
+    return () => {
+      window.removeEventListener("scroll", updateExperienceFill);
+      window.removeEventListener("resize", updateExperienceFill);
+    };
+  }, []);
+
   const handleBackToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -71,13 +99,13 @@ function App() {
         <Navbar />
         <main>
           <Hero />
-          <Achievements />
           <SkillsSection />
+          <Projects />
           <Experience />
           <Education />
-          <Services />
+          <Achievements />
           <Certifications />
-          <Projects />
+          <Services />
           <Contact />
         </main>
         <Footer />

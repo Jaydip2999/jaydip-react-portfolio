@@ -8,13 +8,17 @@ function Experience() {
         Timeline of hands-on development work and focused growth.
       </p>
 
-      <div className="timeline">
+      <div className="experience-list">
         {experiences.map((item, index) => (
-          <article key={item.role} className="timeline-item" style={{ "--delay": `${index * 0.1}s` }}>
-            <p className="timeline-year">{item.period}</p>
-            <h3>{item.role}</h3>
-            <p>{item.org}</p>
-            <p className="timeline-meta">{item.details}</p>
+          <article key={item.role} className="experience-card" style={{ "--delay": `${index * 0.1}s` }}>
+            <div className="experience-side">
+              <p className="experience-period">{item.period}</p>
+              <p className="experience-org">{item.org}</p>
+            </div>
+            <div className="experience-main">
+              <h3 className="experience-role">{item.role}</h3>
+              <p className="experience-details">{item.details}</p>
+            </div>
           </article>
         ))}
       </div>
