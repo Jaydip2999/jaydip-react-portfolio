@@ -62,7 +62,24 @@ function Hero() {
         </div>
 
         <div className="hero-content">
-          <p className="eyebrow">Full Stack Developer</p>
+          <p className="eyebrow">
+            <span className="section-icon section-icon--sm" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 12c2.6 0 4.7-2.1 4.7-4.7S14.6 2.6 12 2.6 7.3 4.7 7.3 7.3 9.4 12 12 12Z"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                />
+                <path
+                  d="M4.3 21.4c1.6-3.6 4.5-5.4 7.7-5.4 3.3 0 6.1 1.8 7.7 5.4"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
+            Full Stack Developer
+          </p>
 
           <h1>
             Hi, I am Jaydip Dumraliya.

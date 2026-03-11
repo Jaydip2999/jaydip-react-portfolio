@@ -13,14 +13,10 @@ import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const nextProgress = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
-      setScrollProgress(Math.min(100, Math.max(0, nextProgress)));
       setShowBackToTop(window.scrollY > 420);
     };
 
@@ -91,10 +87,6 @@ function App() {
 
   return (
     <>
-      <div className="scroll-progress" aria-hidden="true">
-        <span style={{ width: `${scrollProgress}%` }} />
-      </div>
-
       <div className="app-shell">
         <Navbar />
         <main>

@@ -1,3 +1,10 @@
+import projectPortfolio from "../assets/project-portfolio.svg";
+import projectEvents from "../assets/project-events.svg";
+import projectTodo from "../assets/project-todo.svg";
+import certWebDev from "../assets/cert-web-dev.svg";
+import certMern from "../assets/cert-mern.svg";
+import certSql from "../assets/cert-sql.svg";
+
 const skillGroups = [
   {
     title: "Frontend Engineering",
@@ -53,21 +60,58 @@ const services = [
   },
 ];
 
+const projects = [
+  {
+    title: "Personal Portfolio Website",
+    description: "A responsive personal portfolio built using React to showcase my skills, projects, and experience.",
+    stack: ["React", "JavaScript", "CSS"],
+    live: "#",
+    github: "https://github.com/Jaydip2999/personal-portfolio",
+    image: projectPortfolio,
+    tag: "UI/UX",
+  },
+  {
+    title: "Event Management System",
+    description:
+      "A full-featured web application to create, manage and book events. Users can view event details, register, and manage bookings with authentication and validation.",
+    stack: ["PHP", "MySQL", "JavaScript", "CSS"],
+    live: "https://uttsavevent.free.nf/",
+    github: "https://github.com/Jaydip2999/uttsav-event-management",
+    image: projectEvents,
+    tag: "Full Stack",
+  },
+  {
+    title: "To-Do",
+    description: "Task tracking app with clean workflows and quick filtering for daily focus.",
+    stack: ["React", "Context API", "CSS"],
+    live: "https://jaydip2999.github.io/to-do-list/",
+    github: "https://github.com/Jaydip2999/to-do-list",
+    image: projectTodo,
+    tag: "Productivity",
+  },
+];
+
 const certifications = [
   {
     year: "2024",
-    title: "web devlopment",
+    title: "Web Development",
     issuer: "CodeWithHarry",
+    image: certWebDev,
+    badge: "Hands-on Projects",
   },
   {
     year: "2025",
     title: "MERN Stack Development",
-    issuer: "GreeksForGreeks",
+    issuer: "GeeksForGeeks",
+    image: certMern,
+    badge: "Capstone Delivery",
   },
   {
     year: "2025",
     title: "SQL",
-    issuer: "GreeksForGreeks",
+    issuer: "GeeksForGeeks",
+    image: certSql,
+    badge: "Query Mastery",
   },
 ];
 
@@ -112,4 +156,4 @@ const workProcess = [
   },
 ];
 
-export { certifications, experiences, services, skillGroups, testimonials, workProcess };
+export { certifications, experiences, projects, services, skillGroups, testimonials, workProcess };
