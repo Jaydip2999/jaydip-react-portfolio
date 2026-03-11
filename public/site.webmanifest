@@ -1,0 +1,16 @@
+{
+  "name": "Jaydip Dumraliya Portfolio",
+  "short_name": "Jaydip",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "icons": [
+    {
+      "src": "/jd-favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

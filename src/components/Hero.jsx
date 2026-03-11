@@ -1,6 +1,7 @@
 import { useState } from "react";
 import profileImg from "../assets/profile-img.jpeg";
 import SocialLinks from "./SocialLinks";
+import { FaFolderOpen, FaRocket } from "react-icons/fa6";
 
 function Hero() {
   const [isTiltActive, setIsTiltActive] = useState(false);
@@ -82,7 +83,7 @@ function Hero() {
           </p>
 
           <h1>
-            Hi, I am Jaydip Dumraliya.
+            Hi, I am Jaydip Dumraliya.    
             <span className="gradient-name">I Build modern web products.</span>
           </h1>
 
@@ -105,6 +106,9 @@ function Hero() {
               View Portfolio
             </a>
             <a href="#contact" className="hire-btn">
+              <span className="btn-icon" aria-hidden="true">
+                <FaRocket size={16} />
+              </span>
               Start a Project
             </a>
           </div>
@@ -112,12 +116,11 @@ function Hero() {
           <SocialLinks />
 
           <div className="skills" aria-label="Core skills">
-            <span>React.js</span>
-            <span>JavaScript</span>
-            <span>Node.js</span>
-            <span>Html</span>
+            <span>MERN</span>
+            <span>ASP.NET + C#</span>
             <span>MySql</span>
             <span>PHP</span>
+            <span>C / C++ / Java</span>
           </div>
         </div>
       </div>

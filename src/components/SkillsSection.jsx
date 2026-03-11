@@ -1,6 +1,7 @@
 import { skillGroups } from "../data/siteData";
-import { FaCss3Alt, FaHtml5, FaJs, FaNodeJs, FaReact, FaServer } from "react-icons/fa6";
+import { FaCss3Alt, FaHtml5, FaJs, FaNodeJs, FaServer } from "react-icons/fa6";
 import {
+  SiReact,
   SiExpress,
   SiGit,
   SiGithub,
@@ -12,7 +13,7 @@ import {
 
 function SkillsSection() {
   const skillIconMap = new Map([
-    ["React (Learning)", FaReact],
+    ["React (Learning)", SiReact],
     ["JavaScript", FaJs],
     ["HTML5", FaHtml5],
     ["CSS3", FaCss3Alt],
@@ -44,7 +45,7 @@ function SkillsSection() {
         Skills
       </h2>
       <p className="section-subtitle">
-       Technologies I work with and currently learning.
+        Core technologies and tools I use.
       </p>
 
       <div className="skill-tracks">

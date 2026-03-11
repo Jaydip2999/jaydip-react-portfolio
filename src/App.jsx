@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/navbar";
 import Hero from "./components/Hero";
-import Achievements from "./components/Achievements";
 import SkillsSection from "./components/SkillsSection";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
@@ -81,6 +80,34 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const timelines = Array.from(document.querySelectorAll(".education-timeline"));
+    if (timelines.length === 0) return undefined;
+
+    const updateTimelineFill = () => {
+      const viewportFocus = window.innerHeight * 0.4;
+      const scrollY = window.scrollY + viewportFocus;
+
+      timelines.forEach((timeline) => {
+        const rect = timeline.getBoundingClientRect();
+        const start = rect.top + window.scrollY;
+        const end = start + rect.height;
+        const progress = (scrollY - start) / Math.max(1, end - start);
+        const clamped = Math.min(1, Math.max(0, progress));
+        timeline.style.setProperty("--fill", `${(clamped * 100).toFixed(2)}%`);
+      });
+    };
+
+    updateTimelineFill();
+    window.addEventListener("scroll", updateTimelineFill, { passive: true });
+    window.addEventListener("resize", updateTimelineFill);
+
+    return () => {
+      window.removeEventListener("scroll", updateTimelineFill);
+      window.removeEventListener("resize", updateTimelineFill);
+    };
+  }, []);
+
   const handleBackToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -92,10 +119,9 @@ function App() {
         <main>
           <Hero />
           <SkillsSection />
+          <Education />
           <Projects />
           <Experience />
-          <Education />
-          <Achievements />
           <Certifications />
           <Services />
           <Contact />
@@ -108,7 +134,12 @@ function App() {
           onClick={handleBackToTop}
           aria-label="Back to top"
         >
-          Top
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 5.5l-6.5 6.5 1.7 1.7L11 9.9V19h2V9.9l3.8 3.8 1.7-1.7L12 5.5z"
+              fill="currentColor"
+            />
+          </svg>
         </button>
       </div>
     </>

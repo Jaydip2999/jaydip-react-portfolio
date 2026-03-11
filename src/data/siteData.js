@@ -8,40 +8,42 @@ import certSql from "../assets/cert-sql.svg";
 const skillGroups = [
   {
     title: "Frontend Engineering",
-    intro: "Building responsive and user-friendly interfaces using modern frontend technologies.",
+    intro: "Responsive UI with modern frontend tools.",
     items: ["React (Learning)", "JavaScript", "HTML5", "CSS3", "Tailwind"],
   },
   {
     title: "Backend and APIs",
-    intro: "Learning backend development and building basic APIs.",
+    intro: "Learning backend and API basics.",
     items: ["Node.js (Learning)", "Express (Learning)", "REST APIs (Basic)", "MongoDB (Basic)", "JWT"],
   },
   {
     title: "Delivery Tooling",
-    intro: "Version control and deployment tools for project management.",
+    intro: "Version control and deployment.",
     items: ["Git", "GitHub", "Netlify"],
   },
 ];
 
 const experiences = [
   {
+    period: "2023 - 2024",
+    role: "Web Development Learning",
+    org: "College + Self-Paced",
+    details:
+      "Learned core web tech (HTML, CSS, JavaScript) and basic backend concepts while studying with my friend.",
+  },
+  {
+    period: "2024 - 2025",
+    role: "Personal Projects",
+    org: "Self-Learning + Classmate",
+    details:
+      "Built mini web apps and dashboards together, focusing on CRUD, authentication flows, and clean responsive layouts.",
+  },
+  {
     period: "2025 - Present",
     role: "Web Developer Intern",
     org: "Tripple One Studio",
     details:
-      "Worked on developing and maintaining web pages using HTML, CSS and JavaScript,PHP,MySQL. Implemented responsive UI, fixed bugs, and assisted in building project features.",
-  },
-  {
-    period: "2024 - 2025",
-    role: "Personal Projects ",
-    org: "Personal Projects",
-    details: "Implemented authentication, CRUD operations, and responsive design.",
-  },
-  {
-    period: "2023 - 2024",
-    role: "Web Development Learning ",
-    org: "Self-paced",
-    details: "Learned core web technologies including HTML, CSS, JavaScript and basic backend concepts.",
+      "Working on responsive UI builds and feature updates with HTML, CSS, JavaScript, PHP, and MySQL. Fixing bugs, improving pages, and supporting delivery with my classmate teammate.",
   },
 ];
 
@@ -156,4 +158,47 @@ const workProcess = [
   },
 ];
 
-export { certifications, experiences, projects, services, skillGroups, testimonials, workProcess };
+const educationTimeline = [
+  {
+    year: "2023",
+    track: "Academics",
+    title: "Logic & Fundamentals",
+    details:
+      "Built a solid base in C/C++ and discrete problem-solving while settling into BCA coursework.",
+  },
+  {
+    year: "2024",
+    track: "Core CS",
+    title: "OOP & Structured Thinking",
+    details: "Focused on Java, OOP patterns, and clean code habits through console and lab projects.",
+  },
+  {
+    year: "2025",
+    track: "Web Track",
+    title: "Backend & Dynamic Web",
+    details: "Built PHP-driven pages, learned SQL flows, and practiced CRUD features end-to-end.",
+  },
+  {
+    year: "2026",
+    track: "Professional",
+    title: "Modern Stack Growth",
+    details: "Expanded into C#, ASP.NET basics, and development workflows used in real teams.",
+  },
+  {
+    year: "Now",
+    track: "Upskilling",
+    title: "Full-Stack Readiness",
+    details: "Building MERN projects, polishing UI/UX, and shipping features with quality checks.",
+  },
+];
+
+export {
+  certifications,
+  educationTimeline,
+  experiences,
+  projects,
+  services,
+  skillGroups,
+  testimonials,
+  workProcess,
+};

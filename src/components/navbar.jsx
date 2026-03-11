@@ -5,11 +5,8 @@ function Navbar() {
 
   const navItems = [
     { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Portfolio", href: "#projects" },
-    { label: "Experience", href: "#experience" },
     { label: "Education", href: "#education" },
-    { label: "Certifications", href: "#certifications" },
+    { label: "Portfolio", href: "#projects" },
     { label: "Contact", href: "#contact" },
   ];
 

@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/jd-favicon.svg" />
+    <link rel="apple-touch-icon" href="/jd-favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="canonical" href="https://your-domain.com/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jaydip Dumraliya | Frontend Developer | React Portfolio</title>
     <meta
@@ -16,15 +19,20 @@
     <meta name="author" content="Jaydip Dumraliya" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#0b1220" />
+    <meta name="application-name" content="Jaydip Dumraliya Portfolio" />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Jaydip Dumraliya Portfolio" />
+    <meta property="og:url" content="https://your-domain.com/" />
     <meta property="og:title" content="Jaydip Dumraliya | Frontend Developer | React Portfolio" />
     <meta
       property="og:description"
       content="Frontend Developer portfolio of Jaydip Dumraliya showcasing React projects, skills, professional experience, and services."
     />
+    <meta property="og:image" content="https://your-domain.com/og-image.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Jaydip Dumraliya | Frontend Developer | React Portfolio" />
@@ -32,6 +40,7 @@
       name="twitter:description"
       content="Frontend Developer portfolio featuring React projects, UI work, skills, and contact details."
     />
+    <meta name="twitter:image" content="https://your-domain.com/og-image.svg" />
 
     <script type="application/ld+json">
       {
@@ -40,6 +49,8 @@
         "name": "Jaydip Dumraliya",
         "jobTitle": "Frontend Developer",
         "description": "Frontend Developer focused on React, JavaScript, and responsive modern web interfaces.",
+        "url": "https://your-domain.com/",
+        "image": "https://your-domain.com/og-image.svg",
         "email": "mailto:jaydipdumraliya2052@gmail.com",
         "sameAs": [
           "https://www.linkedin.com/in/jaydip-dumraliya-3a3083350",
@@ -51,7 +62,16 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="app-loader" role="status" aria-live="polite" aria-label="Loading">
+        <div class="loader-orbit">
+          <span class="loader-core"></span>
+          <span class="loader-ring loader-ring-a"></span>
+          <span class="loader-ring loader-ring-b"></span>
+        </div>
+        <p class="loader-text">Loading portfolio…</p>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
