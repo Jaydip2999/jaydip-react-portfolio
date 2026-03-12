@@ -2036,6 +2036,15 @@ a {
 }
 
 @media (max-width: 980px) {
+  html,
+  body,
+  #root {
+    overflow-x: hidden;
+  }
+
+  .hero-badge {
+    display: none;
+  }
   .nav-toggle {
     display: inline-flex;
   }
@@ -2149,6 +2158,9 @@ a {
 }
 
 @media (max-width: 560px) {
+  .section-title::after {
+    right: 0;
+  }
   .nav-container {
     padding-left: 14px;
     padding-right: 14px;
