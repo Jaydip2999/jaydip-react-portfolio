@@ -25,3 +25,17 @@ Jaydip Dumraliya
 Aspiring Web Developer
 
 GitHub: https://github.com/Jaydip2999
+
+## 🔧 Recent Improvements
+
+- Improved project documentation
+- Updated README structure for better readability
+- Added clearer feature descriptions
+- Preparing future improvements for UI and backend integration
+
+## 🚀 Future Enhancements
+
+- Add backend integration
+- Implement authentication system
+- Improve UI/UX animations
+- Add database support
