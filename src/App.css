@@ -1504,6 +1504,33 @@ a {
   transform: scale(1.02);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
 }
+.projects-section {
+  position: relative;
+}
+
+/* 🔥 EACH PROJECT KO SPACE DO */
+.project-card {
+  position: sticky;
+  top: 80px;
+
+  min-height: calc(100vh - 80px);
+}
+
+/* 🔥 SCROLL SPACE (MOST IMPORTANT) */
+.project-card:not(:last-child) {
+  margin-bottom: 120px;
+}
+.projects-container {
+  display: block;
+}
+
+.project-card {
+  height: calc(100vh - 80px);
+}
+
+.projects-section {
+  height: calc(100vh * 3); /* 🔥 number of projects */
+}
 
 /* 🔥 GLOW BORDER */
 .project-card::before {
