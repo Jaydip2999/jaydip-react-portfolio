@@ -2,33 +2,29 @@ import { projects } from "../data/siteData";
 import { FaCalendarDays, FaListCheck, FaLaptopCode } from "react-icons/fa6";
 import { FaCss3Alt, FaJs, FaReact, FaDiagramProject } from "react-icons/fa6";
 import { SiPhp, SiMysql } from "react-icons/si";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // 🔥 Scroll logic (MAIN FEATURE)
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = document.getElementById("projects");
-      if (!section) return;
+useEffect(() => {
+  const handleScroll = () => {
+    const section = document.getElementById("projects");
+    const rect = section.getBoundingClientRect();
 
-      const rect = section.getBoundingClientRect();
-      const scrollProgress = -rect.top;
-      const sectionHeight = window.innerHeight;
+    const scrollProgress = -rect.top;
+    const screenHeight = window.innerHeight;
 
-      const index = Math.floor(scrollProgress / sectionHeight);
+    const index = Math.floor(scrollProgress / screenHeight);
 
-      if (index >= 0 && index < projects.length) {
-        setActiveIndex(index);
-      }
-    };
+    if (index >= 0 && index < projects.length) {
+      setActiveIndex(index);
+    }
+  };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Icons mapping
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
   const stackIconMap = new Map([
     ["React", FaReact],
     ["JavaScript", FaJs],
@@ -37,7 +33,6 @@ function Projects() {
     ["MySQL", SiMysql],
     ["Context API", FaDiagramProject],
   ]);
-
   const getProjectIcon = (title) => {
     const value = title.toLowerCase();
     if (value.includes("portfolio")) return FaLaptopCode;
@@ -47,58 +42,67 @@ function Projects() {
   };
 
   return (
-    <section
-      id="projects"
-      className="projects-section"
-      style={{ height: `${projects.length * 100}vh` }} // 🔥 IMPORTANT
-    >
+    <section id="projects" className="projects-section section reveal">
+      <h2 className="section-title">
+        <span className="section-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <rect x="3.5" y="4" width="7.5" height="7.5" rx="1.8" stroke="currentColor" strokeWidth="1.6" />
+            <rect x="13" y="4" width="7.5" height="7.5" rx="1.8" stroke="currentColor" strokeWidth="1.6" />
+            <rect x="3.5" y="13.5" width="7.5" height="7.5" rx="1.8" stroke="currentColor" strokeWidth="1.6" />
+            <rect x="13" y="13.5" width="7.5" height="7.5" rx="1.8" stroke="currentColor" strokeWidth="1.6" />
+          </svg>
+        </span>
+        Featured Work
+      </h2>
+      <p className="section-subtitle">A quick look at projects that reflect my delivery and design taste.</p>
+
       <div className="projects-container">
         {projects.map((project, index) => (
           <article
-            key={project.title}
-            className={`project-card ${
-              index === activeIndex ? "active" : ""
-            }`}
-          >
-            {/* LEFT SIDE IMAGE */}
+  key={project.title}
+  className={`project-card ${index === activeIndex ? "active" : ""}`}
+>
             <div className="project-media">
               <img
                 src={project.image}
-                alt={project.title}
+                alt={`${project.title} preview`}
                 className="project-image"
+                loading="lazy"
               />
+              <span className="project-tag">{project.tag}</span>
             </div>
 
-            {/* RIGHT SIDE CONTENT */}
             <div className="project-body">
-              <h2>
-                {(() => {
-                  const Icon = getProjectIcon(project.title);
-                  return <Icon size={20} />;
-                })()}{" "}
+              <h3 className="text-with-icon">
+                <span className="inline-icon" aria-hidden="true">
+                  {(() => {
+                    const Icon = getProjectIcon(project.title);
+                    return <Icon size={18} />;
+                  })()}
+                </span>
                 {project.title}
-              </h2>
-
+              </h3>
               <p>{project.description}</p>
-
-              {/* STACK */}
               <div className="chip-row">
-                {project.stack.map((item) => {
-                  const Icon = stackIconMap.get(item);
-                  return (
-                    <span key={item}>
-                      {Icon && <Icon size={16} />} {item}
-                    </span>
-                  );
-                })}
+                {project.stack.map((item) => (
+                  <span key={item}>
+                    {(() => {
+                      const Icon = stackIconMap.get(item);
+                      return Icon ? (
+                        <span className="chip-icon" aria-hidden="true">
+                          <Icon size={20} />
+                        </span>
+                      ) : null;
+                    })()}
+                    {item}
+                  </span>
+                ))}
               </div>
-
-              {/* BUTTONS */}
               <div className="project-links">
-                <a href={project.live} target="_blank" rel="noreferrer">
+                <a href={project.live} className="btn live" target="_blank" rel="noopener noreferrer">
                   Live Demo
                 </a>
-                <a href={project.github} target="_blank" rel="noreferrer">
+                <a href={project.github} className="btn github" target="_blank" rel="noopener noreferrer">
                   GitHub
                 </a>
               </div>
