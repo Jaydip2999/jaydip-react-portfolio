@@ -7,24 +7,41 @@ import { useEffect, useState } from "react";
 function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-useEffect(() => {
-  const handleScroll = () => {
-    const section = document.getElementById("projects");
-    const rect = section.getBoundingClientRect();
+  useEffect(() => {
+    let frameId = 0;
 
-    const scrollProgress = -rect.top;
-    const screenHeight = window.innerHeight;
+    const handleScroll = () => {
+      const section = document.getElementById("projects");
+      if (!section) return;
 
-    const index = Math.floor(scrollProgress / screenHeight);
+      const header = section.querySelector(".projects-header");
+      const rect = section.getBoundingClientRect();
+      const headerHeight = header ? header.getBoundingClientRect().height : 0;
+      const sectionOffset = Math.max(0, -rect.top - headerHeight - 24);
+      const totalScrollable = Math.max(1, rect.height - window.innerHeight - headerHeight);
+      const progress = Math.min(0.999, Math.max(0, sectionOffset / totalScrollable));
+      const index = Math.floor(progress * projects.length);
 
-    if (index >= 0 && index < projects.length) {
-      setActiveIndex(index);
-    }
-  };
+      if (index >= 0 && index < projects.length) {
+        setActiveIndex(index);
+      }
+    };
 
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
+    const syncActiveProject = () => {
+      window.cancelAnimationFrame(frameId);
+      frameId = window.requestAnimationFrame(handleScroll);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", syncActiveProject, { passive: true });
+    window.addEventListener("resize", syncActiveProject);
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+      window.removeEventListener("scroll", syncActiveProject);
+      window.removeEventListener("resize", syncActiveProject);
+    };
+  }, []);
   const stackIconMap = new Map([
     ["React", FaReact],
     ["JavaScript", FaJs],
@@ -42,26 +59,28 @@ useEffect(() => {
   };
 
   return (
-    <section id="projects" className="projects-section section reveal">
-      <h2 className="section-title">
-        <span className="section-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <rect x="3.5" y="4" width="7.5" height="7.5" rx="1.8" stroke="currentColor" strokeWidth="1.6" />
-            <rect x="13" y="4" width="7.5" height="7.5" rx="1.8" stroke="currentColor" strokeWidth="1.6" />
-            <rect x="3.5" y="13.5" width="7.5" height="7.5" rx="1.8" stroke="currentColor" strokeWidth="1.6" />
-            <rect x="13" y="13.5" width="7.5" height="7.5" rx="1.8" stroke="currentColor" strokeWidth="1.6" />
-          </svg>
-        </span>
-        Featured Work
-      </h2>
-      <p className="section-subtitle">A quick look at projects that reflect my delivery and design taste.</p>
+    <section id="projects" className="projects-section section reveal" style={{ "--project-count": projects.length }}>
+      <div className="projects-header">
+        <h2 className="section-title">
+          <span className="section-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="3.5" y="4" width="7.5" height="7.5" rx="1.8" stroke="currentColor" strokeWidth="1.6" />
+              <rect x="13" y="4" width="7.5" height="7.5" rx="1.8" stroke="currentColor" strokeWidth="1.6" />
+              <rect x="3.5" y="13.5" width="7.5" height="7.5" rx="1.8" stroke="currentColor" strokeWidth="1.6" />
+              <rect x="13" y="13.5" width="7.5" height="7.5" rx="1.8" stroke="currentColor" strokeWidth="1.6" />
+            </svg>
+          </span>
+          Featured Work
+        </h2>
+        <p className="section-subtitle">A quick look at projects that reflect my delivery and design taste.</p>
+      </div>
 
       <div className="projects-container">
         {projects.map((project, index) => (
           <article
-  key={project.title}
-  className={`project-card ${index === activeIndex ? "active" : ""}`}
->
+            key={project.title}
+            className={`project-card ${index === activeIndex ? "active" : ""}`}
+          >
             <div className="project-media">
               <img
                 src={project.image}

@@ -41,6 +41,28 @@
       content="Frontend Developer portfolio featuring React projects, UI work, skills, and contact details."
     />
     <meta name="twitter:image" content="https://your-domain.com/og-image.svg" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: #060b16;
+      }
+
+      body {
+        color: #e2e8f0;
+        font-family: "Space Grotesk", sans-serif;
+      }
+
+      #root {
+        min-height: 100vh;
+        background:
+          radial-gradient(60rem 34rem at 120% -10%, rgba(34, 211, 238, 0.18), transparent 60%),
+          radial-gradient(50rem 32rem at -10% 18%, rgba(52, 211, 153, 0.2), transparent 60%),
+          radial-gradient(30rem 22rem at 50% 80%, rgba(99, 102, 241, 0.1), transparent 60%),
+          #060b16;
+      }
+    </style>
 
     <script type="application/ld+json">
       {
@@ -63,13 +85,25 @@
   </head>
   <body>
     <div id="root">
-      <div class="app-loader" role="status" aria-live="polite" aria-label="Loading">
-        <div class="loader-orbit">
-          <span class="loader-core"></span>
-          <span class="loader-ring loader-ring-a"></span>
-          <span class="loader-ring loader-ring-b"></span>
+      <div class="app-loader" role="status" aria-live="polite" aria-label="Loading portfolio">
+        <div class="loader-panel">
+          <div class="loader-badge">JD</div>
+          <div class="loader-orbit" aria-hidden="true">
+            <span class="loader-ring loader-ring-a"></span>
+            <span class="loader-ring loader-ring-b"></span>
+            <span class="loader-ring loader-ring-c"></span>
+            <span class="loader-core"></span>
+            <span class="loader-scan"></span>
+          </div>
+          <div class="loader-copy">
+            <p class="loader-kicker">Portfolio Initializing</p>
+            <h2 class="loader-title">Crafting the interface</h2>
+            <p class="loader-text">Loading projects, motion, and the current visual theme.</p>
+          </div>
+          <div class="loader-progress" aria-hidden="true">
+            <span></span>
+          </div>
         </div>
-        <p class="loader-text">Loading portfolio…</p>
       </div>
     </div>
     <script type="module" src="/src/main.jsx"></script>

@@ -64,15 +64,6 @@ const services = [
 
 const projects = [
   {
-    title: "Personal Portfolio Website",
-    description: "A responsive personal portfolio built using React to showcase my skills, projects, and experience.",
-    stack: ["React", "JavaScript", "CSS"],
-    live: "#",
-    github: "https://github.com/Jaydip2999/personal-portfolio",
-    image: projectPortfolio,
-    tag: "UI/UX",
-  },
-  {
     title: "Event Management System",
     description:
       "A full-featured web application to create, manage and book events. Users can view event details, register, and manage bookings with authentication and validation.",
@@ -81,6 +72,15 @@ const projects = [
     github: "https://github.com/Jaydip2999/uttsav-event-management",
     image: projectEvents,
     tag: "Full Stack",
+  },
+  {
+    title: "Personal Portfolio Website",
+    description: "A responsive personal portfolio built using React to showcase my skills, projects, and experience.",
+    stack: ["React", "JavaScript", "CSS"],
+    live: "#",
+    github: "https://github.com/Jaydip2999/personal-portfolio",
+    image: projectPortfolio,
+    tag: "UI/UX",
   },
   {
     title: "To-Do",

@@ -12,7 +12,18 @@ import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setIsLoading(false);
+    }, 1800);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +39,8 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if (isLoading) return undefined;
+
     const revealNodes = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
       (entries) => {
@@ -50,9 +63,11 @@ function App() {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [isLoading]);
 
   useEffect(() => {
+    if (isLoading) return undefined;
+
     const experienceLists = Array.from(document.querySelectorAll(".experience-list"));
     if (experienceLists.length === 0) return undefined;
 
@@ -78,39 +93,74 @@ function App() {
       window.removeEventListener("scroll", updateExperienceFill);
       window.removeEventListener("resize", updateExperienceFill);
     };
-  }, []);
+  }, [isLoading]);
 
   useEffect(() => {
+    if (isLoading) return undefined;
+
     const timelines = Array.from(document.querySelectorAll(".education-timeline"));
     if (timelines.length === 0) return undefined;
 
+    let frameId = 0;
+
     const updateTimelineFill = () => {
-      const viewportFocus = window.innerHeight * 0.4;
-      const scrollY = window.scrollY + viewportFocus;
+      const viewportHeight = window.innerHeight;
 
       timelines.forEach((timeline) => {
         const rect = timeline.getBoundingClientRect();
-        const start = rect.top + window.scrollY;
-        const end = start + rect.height;
-        const progress = (scrollY - start) / Math.max(1, end - start);
+        const startOffset = viewportHeight * 0.82;
+        const totalDistance = rect.height + viewportHeight * 0.45;
+        const travelled = startOffset - rect.top;
+        const progress = travelled / Math.max(1, totalDistance);
         const clamped = Math.min(1, Math.max(0, progress));
         timeline.style.setProperty("--fill", `${(clamped * 100).toFixed(2)}%`);
       });
     };
 
+    const handleTimelineScroll = () => {
+      window.cancelAnimationFrame(frameId);
+      frameId = window.requestAnimationFrame(updateTimelineFill);
+    };
+
     updateTimelineFill();
-    window.addEventListener("scroll", updateTimelineFill, { passive: true });
-    window.addEventListener("resize", updateTimelineFill);
+    window.addEventListener("scroll", handleTimelineScroll, { passive: true });
+    window.addEventListener("resize", handleTimelineScroll);
 
     return () => {
-      window.removeEventListener("scroll", updateTimelineFill);
-      window.removeEventListener("resize", updateTimelineFill);
+      window.cancelAnimationFrame(frameId);
+      window.removeEventListener("scroll", handleTimelineScroll);
+      window.removeEventListener("resize", handleTimelineScroll);
     };
-  }, []);
+  }, [isLoading]);
 
   const handleBackToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  if (isLoading) {
+    return (
+      <div className="app-loader" role="status" aria-live="polite" aria-label="Loading portfolio">
+        <div className="loader-panel">
+          <div className="loader-badge">JD</div>
+          <div className="loader-orbit" aria-hidden="true">
+            <span className="loader-ring loader-ring-a" />
+            <span className="loader-ring loader-ring-b" />
+            <span className="loader-ring loader-ring-c" />
+            <span className="loader-core" />
+            <span className="loader-scan" />
+          </div>
+          <div className="loader-copy">
+            <p className="loader-kicker">Portfolio Initializing</p>
+            <h2 className="loader-title">Crafting the interface</h2>
+            <p className="loader-text">Loading projects, motion, and the current visual theme.</p>
+          </div>
+          <div className="loader-progress" aria-hidden="true">
+            <span />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
