@@ -1,30 +1,116 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">To-Do task manager preview</title>
+  <desc id="desc">A polished dark task dashboard mockup with task cards, progress stats, and upcoming schedule.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0b162b"/>
-      <stop offset="100%" stop-color="#0a1221"/>
+    <linearGradient id="page" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.52" stop-color="#082734"/>
+      <stop offset="1" stop-color="#06101c"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#34d399"/>
-      <stop offset="100%" stop-color="#22d3ee"/>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#22d3ee"/>
     </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbbf24"/>
+      <stop offset="1" stop-color="#fb7185"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#020617" flood-opacity="0.42"/>
+    </filter>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#1d4f5b" stroke-opacity="0.18"/>
+    </pattern>
   </defs>
-  <rect width="1200" height="800" fill="url(#bg)"/>
-  <rect x="200" y="120" width="800" height="560" rx="36" fill="#0c182f" stroke="#1f2d48" stroke-width="2"/>
-  <rect x="260" y="190" width="680" height="90" rx="22" fill="#101d36" stroke="#24314a" stroke-width="2"/>
-  <rect x="260" y="310" width="680" height="90" rx="22" fill="#101d36" stroke="#24314a" stroke-width="2"/>
-  <rect x="260" y="430" width="680" height="90" rx="22" fill="#101d36" stroke="#24314a" stroke-width="2"/>
-  <rect x="260" y="550" width="420" height="70" rx="20" fill="#101d36" stroke="#24314a" stroke-width="2"/>
-  <circle cx="310" cy="235" r="22" fill="#0b152a" stroke="#2b3a57" stroke-width="2"/>
-  <circle cx="310" cy="355" r="22" fill="#0b152a" stroke="#2b3a57" stroke-width="2"/>
-  <circle cx="310" cy="475" r="22" fill="#0b152a" stroke="#2b3a57" stroke-width="2"/>
-  <circle cx="310" cy="585" r="20" fill="#0b152a" stroke="#2b3a57" stroke-width="2"/>
-  <path d="M300 235l8 8 18-18" fill="none" stroke="url(#accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="350" y="220" width="360" height="14" rx="7" fill="url(#accent)"/>
-  <rect x="350" y="250" width="220" height="10" rx="5" fill="#2b3a57"/>
-  <rect x="350" y="340" width="300" height="14" rx="7" fill="url(#accent)"/>
-  <rect x="350" y="370" width="240" height="10" rx="5" fill="#2b3a57"/>
-  <rect x="350" y="460" width="260" height="14" rx="7" fill="url(#accent)"/>
-  <rect x="350" y="490" width="200" height="10" rx="5" fill="#2b3a57"/>
-  <rect x="350" y="570" width="200" height="12" rx="6" fill="#2b3a57"/>
+
+  <rect width="1200" height="760" fill="url(#page)"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.75"/>
+  <circle cx="1040" cy="74" r="210" fill="#22d3ee" opacity="0.08"/>
+  <circle cx="114" cy="640" r="240" fill="#34d399" opacity="0.1"/>
+
+  <g filter="url(#shadow)">
+    <rect x="92" y="74" width="1016" height="612" rx="34" fill="#0b1727" stroke="#244055" stroke-width="2"/>
+  </g>
+
+  <rect x="92" y="74" width="232" height="612" rx="34" fill="#080f1c"/>
+  <path d="M324 108v544" stroke="#1f3547" stroke-width="2"/>
+
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+    <text x="132" y="136" fill="#e6f0ff" font-size="30" font-weight="800">TaskFlow</text>
+    <text x="132" y="166" fill="#8ea4bd" font-size="15">Daily focus board</text>
+
+    <rect x="126" y="214" width="160" height="44" rx="14" fill="#112238"/>
+    <rect x="142" y="229" width="16" height="16" rx="5" fill="url(#accent)"/>
+    <text x="174" y="243" fill="#e6f0ff" font-size="15" font-weight="700">Today</text>
+
+    <rect x="126" y="280" width="160" height="44" rx="14" fill="#0d1728"/>
+    <circle cx="150" cy="302" r="8" fill="#7c3aed"/>
+    <text x="174" y="308" fill="#a9bbd2" font-size="15" font-weight="700">Upcoming</text>
+
+    <rect x="126" y="346" width="160" height="44" rx="14" fill="#0d1728"/>
+    <circle cx="150" cy="368" r="8" fill="#fbbf24"/>
+    <text x="174" y="374" fill="#a9bbd2" font-size="15" font-weight="700">Priority</text>
+
+    <rect x="126" y="574" width="160" height="58" rx="18" fill="#102638" stroke="#1e5661"/>
+    <text x="148" y="605" fill="#22d3ee" font-size="22" font-weight="800">82%</text>
+    <text x="205" y="604" fill="#b8c6d8" font-size="13" font-weight="700">done</text>
+  </g>
+
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+    <text x="372" y="139" fill="#f8fbff" font-size="34" font-weight="800">To-Do Dashboard</text>
+    <text x="372" y="171" fill="#97acc5" font-size="16">Plan, track, and finish work with a clean React task manager.</text>
+
+    <rect x="886" y="114" width="164" height="48" rx="16" fill="url(#accent)"/>
+    <text x="922" y="144" fill="#06111c" font-size="16" font-weight="800">+ New Task</text>
+
+    <rect x="372" y="214" width="198" height="116" rx="24" fill="#132536" stroke="#29475b"/>
+    <rect x="402" y="244" width="54" height="54" rx="16" fill="#123e3a"/>
+    <path d="M419 271l9 9 20-25" fill="none" stroke="#34d399" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="482" y="258" fill="#bdcada" font-size="15" font-weight="700">Completed</text>
+    <text x="482" y="296" fill="#ffffff" font-size="36" font-weight="800">12</text>
+
+    <rect x="594" y="214" width="198" height="116" rx="24" fill="#132536" stroke="#29475b"/>
+    <rect x="624" y="244" width="54" height="54" rx="16" fill="#18314a"/>
+    <path d="M651 253v32M635 269h32" stroke="#22d3ee" stroke-width="6" stroke-linecap="round"/>
+    <text x="704" y="258" fill="#bdcada" font-size="15" font-weight="700">Active</text>
+    <text x="704" y="296" fill="#ffffff" font-size="36" font-weight="800">06</text>
+
+    <rect x="816" y="214" width="234" height="116" rx="24" fill="#132536" stroke="#29475b"/>
+    <rect x="846" y="244" width="54" height="54" rx="16" fill="#3a2f26"/>
+    <path d="M873 257v18l14 9" fill="none" stroke="#fbbf24" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="926" y="258" fill="#bdcada" font-size="15" font-weight="700">Due Today</text>
+    <text x="926" y="296" fill="#ffffff" font-size="36" font-weight="800">03</text>
+
+    <rect x="372" y="374" width="446" height="250" rx="28" fill="#101d2d" stroke="#254258"/>
+    <text x="406" y="424" fill="#e6f0ff" font-size="22" font-weight="800">Today&apos;s Tasks</text>
+    <rect x="670" y="396" width="106" height="34" rx="17" fill="#0b2f3a" stroke="#1d6573"/>
+    <text x="699" y="418" fill="#67e8f9" font-size="13" font-weight="800">React</text>
+
+    <g>
+      <rect x="406" y="458" width="374" height="52" rx="16" fill="#15283a"/>
+      <circle cx="434" cy="484" r="12" fill="#0f1d2d" stroke="#34d399" stroke-width="4"/>
+      <path d="M429 484l4 5 10-12" fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="464" y="480" fill="#f8fbff" font-size="16" font-weight="750">Build task filter UI</text>
+      <text x="464" y="500" fill="#8fa4ba" font-size="12">High priority</text>
+      <rect x="704" y="473" width="48" height="22" rx="11" fill="#123e3a"/>
+      <text x="718" y="489" fill="#34d399" font-size="11" font-weight="800">Done</text>
+    </g>
+
+    <g>
+      <rect x="406" y="526" width="374" height="52" rx="16" fill="#15283a"/>
+      <circle cx="434" cy="552" r="12" fill="#0f1d2d" stroke="#22d3ee" stroke-width="4"/>
+      <text x="464" y="548" fill="#f8fbff" font-size="16" font-weight="750">Save tasks in Context API</text>
+      <text x="464" y="568" fill="#8fa4ba" font-size="12">In progress</text>
+      <rect x="682" y="541" width="70" height="22" rx="11" fill="#102b3f"/>
+      <text x="698" y="557" fill="#67e8f9" font-size="11" font-weight="800">Active</text>
+    </g>
+
+    <rect x="850" y="374" width="200" height="250" rx="28" fill="#101d2d" stroke="#254258"/>
+    <text x="882" y="424" fill="#e6f0ff" font-size="22" font-weight="800">Progress</text>
+    <circle cx="950" cy="512" r="58" fill="none" stroke="#1b3144" stroke-width="18"/>
+    <path d="M950 454a58 58 0 1 1-48 90" fill="none" stroke="url(#accent)" stroke-width="18" stroke-linecap="round"/>
+    <text x="917" y="522" fill="#ffffff" font-size="30" font-weight="800">82%</text>
+    <rect x="882" y="584" width="136" height="10" rx="5" fill="#1a3042"/>
+    <rect x="882" y="584" width="104" height="10" rx="5" fill="url(#warm)"/>
+  </g>
 </svg>
