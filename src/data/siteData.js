@@ -77,7 +77,7 @@ const projects = [
     title: "Personal Portfolio Website",
     description: "A responsive personal portfolio built using React to showcase my skills, projects, and experience.",
     stack: ["React", "JavaScript", "CSS"],
-    live: "#",
+    live: "https://jaydip-dumraliya.vercel.app/",
     github: "https://github.com/Jaydip2999/personal-portfolio",
     image: projectPortfolio,
     tag: "UI/UX",

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import profileImg from "../assets/profile-img.jpeg";
 import SocialLinks from "./SocialLinks";
-import { FaFolderOpen, FaRocket } from "react-icons/fa6";
+import { FaDownload, FaFolderOpen, FaRocket } from "react-icons/fa6";
 
 function Hero() {
   const [isTiltActive, setIsTiltActive] = useState(false);
@@ -103,7 +103,16 @@ function Hero() {
 
           <div className="hero-buttons">
             <a href="#projects" className="resume-btn">
+              <span className="btn-icon" aria-hidden="true">
+                <FaFolderOpen size={16} />
+              </span>
               View Portfolio
+            </a>
+            <a href="/resume.pdf" className="resume-btn" download>
+              <span className="btn-icon" aria-hidden="true">
+                <FaDownload size={16} />
+              </span>
+              Download Resume
             </a>
             <a href="#contact" className="hire-btn">
               <span className="btn-icon" aria-hidden="true">
