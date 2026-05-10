@@ -2,8 +2,8 @@ import projectPortfolio from "../assets/project-portfolio.svg";
 import projectEvents from "../assets/project-events.svg";
 import projectTodo from "../assets/project-todo.svg";
 import certWebDev from "../assets/cert-web-dev.svg";
-import certMern from "../assets/cert-mern.svg";
-import certSql from "../assets/cert-sql.svg";
+import certFullStack from "../assets/certificate-fullstack-geeksforgeeks.png";
+import certSql from "../assets/certificate-sql-geeksforgeeks.png";
 
 const skillGroups = [
   {
@@ -95,25 +95,25 @@ const projects = [
 
 const certifications = [
   {
-    year: "2024",
-    title: "Web Development",
-    issuer: "CodeWithHarry",
+    year: "2025",
+    title: "Web Developer Internship",
+    issuer: "Tripple One Studio",
     image: certWebDev,
-    badge: "Hands-on Projects",
+    badge: "Internship",
   },
   {
     year: "2025",
-    title: "MERN Stack Development",
+    title: "Full Stack Web Development - Skill Up",
     issuer: "GeeksForGeeks",
-    image: certMern,
-    badge: "Capstone Delivery",
+    image: certFullStack,
+    badge: "Completed",
   },
   {
     year: "2025",
-    title: "SQL",
+    title: "SQL - Skill Up",
     issuer: "GeeksForGeeks",
     image: certSql,
-    badge: "Query Mastery",
+    badge: "Completed",
   },
 ];
 
